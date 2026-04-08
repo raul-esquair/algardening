@@ -46,18 +46,20 @@ A high-converting website for AL Gardening, a local landscaping business serving
 - **Credentials:** Licensed & Insured
 - **Example copy:** "Welcome to AL Gardening — your neighborhood landscaping team."
 
-## Services (3)
+## Services (4)
 1. Lawn Maintenance — mowing, edging, trimming, blowing, seasonal cleanup, fertilization
 2. Landscape Design & Installation — consultation, custom design, planting, sod, mulch, flower beds, irrigation
 3. Tree & Shrub Care — pruning, trimming, shaping, removal, stump grinding, health assessments
+4. Yard Cleanup — seasonal cleanup, storm damage, overgrown yard restoration, full haul-away
 
 ## Site Architecture
 ```
 / .......................... Home
-/services .................. Services overview (3 cards)
+/services .................. Services overview (4 cards)
 /services/lawn-maintenance . Individual service page
 /services/landscape-design . Individual service page
 /services/tree-shrub-care .. Individual service page
+/services/yard-cleanup ..... Individual service page
 /about ..................... Company story, values, stats
 /gallery ................... Filterable photo grid + before/after
 /blog ...................... Blog listing (MDX-powered)
@@ -86,7 +88,18 @@ The project follows a phased build tracked in `.phase-tracker.md`. Run `/phase` 
 - Every page must have: meta title, meta description, Open Graph tags
 - Form validation on both client and server side
 
+## Key Architecture Decisions
+- **Service data is centralized** in `src/lib/services-data.ts`. Header, Footer, ServicesSection, and ServicePageTemplate all import from it. Adding a new service = add entry to data file + create one route page. Everything else auto-updates.
+- **Animations** use Framer Motion. Reusable primitives in `src/components/ui/animations.tsx` (FadeIn, StaggerChildren, StaggerItem, SlideIn, ScaleOnHover). CSS classes `btn-lift` and `card-lift` in globals.css for hover effects.
+- **Header** uses `fixed` positioning (not `sticky` — sticky breaks in flex containers). Main content has `pt-24` to compensate. Header compresses from h-24 to h-16 on scroll.
+- **Contact form** UI works but Resend email delivery is NOT yet wired up — submissions log to console.
+- **Phone:** (925) 504-7892 | **Email:** hello@algardening.com
+- **GitHub:** raul-esquair/algardening | **Hosting:** Netlify
+
 ## Important Files
 - `CLAUDE.md` — this file (project context, read every session)
 - `.phase-tracker.md` — current build progress (read before any work)
 - `.claude/commands/phase.md` — the /phase skill definition
+- `src/lib/services-data.ts` — single source of truth for all service data
+- `src/lib/blog.ts` — blog utility (reads MDX files, parses frontmatter)
+- `src/components/ui/animations.tsx` — reusable Framer Motion animation components
