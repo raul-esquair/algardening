@@ -35,6 +35,7 @@ export default function Header() {
   }, []);
 
   return (
+    <>
     <header
       className={`sticky top-0 z-50 bg-white/95 backdrop-blur-md transition-shadow duration-300 ${
         scrolled
@@ -143,56 +144,58 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 top-24 z-[60] bg-white lg:hidden">
-          <nav className="flex flex-col px-6 py-8">
-            {/* Services Accordion */}
-            <button
-              onClick={() => setServicesOpen(!servicesOpen)}
-              className="flex items-center justify-between border-b border-neutral-mid py-4 text-lg font-medium text-neutral-dark"
-            >
-              Services
-              <ChevronDown
-                className={`h-5 w-5 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
-              />
-            </button>
-            {servicesOpen && (
-              <div className="flex flex-col border-b border-neutral-mid py-2">
-                {serviceLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="py-3 pl-4 text-base text-neutral-dark/80 transition-colors hover:text-primary"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="border-b border-neutral-mid py-4 text-lg font-medium text-neutral-dark"
-              >
-                {link.label}
-              </Link>
-            ))}
-
-            <Link
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="btn-lift mt-8 rounded-lg bg-accent py-4 text-center text-base font-semibold text-white"
-            >
-              Get Free Estimate
-            </Link>
-          </nav>
-        </div>
-      )}
     </header>
+
+    {/* Mobile Menu Overlay — outside header to avoid stacking context issues */}
+    {mobileMenuOpen && (
+      <div className="fixed inset-0 top-24 z-[100] bg-white lg:hidden">
+        <nav className="flex flex-col px-6 py-8">
+          {/* Services Accordion */}
+          <button
+            onClick={() => setServicesOpen(!servicesOpen)}
+            className="flex items-center justify-between border-b border-neutral-mid py-4 text-lg font-medium text-neutral-dark"
+          >
+            Services
+            <ChevronDown
+              className={`h-5 w-5 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
+            />
+          </button>
+          {servicesOpen && (
+            <div className="flex flex-col border-b border-neutral-mid py-2">
+              {serviceLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-3 pl-4 text-base text-neutral-dark/80 transition-colors hover:text-primary"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          )}
+
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="border-b border-neutral-mid py-4 text-lg font-medium text-neutral-dark"
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          <Link
+            href="/contact"
+            onClick={() => setMobileMenuOpen(false)}
+            className="btn-lift mt-8 rounded-lg bg-accent py-4 text-center text-base font-semibold text-white"
+          >
+            Get Free Estimate
+          </Link>
+        </nav>
+      </div>
+    )}
+    </>
   );
 }
