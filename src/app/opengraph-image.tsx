@@ -31,8 +31,8 @@ export default async function OGImage() {
         <img
           src={logoBase64}
           alt="AL Gardening Logo"
-          width={380}
-          height={380}
+          width={460}
+          height={460}
           style={{
             filter: "brightness(0) invert(1)",
             objectFit: "contain",
