@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { Phone, ChevronDown, Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -147,55 +148,80 @@ export default function Header() {
     </header>
 
     {/* Mobile Menu Overlay — outside header to avoid stacking context issues */}
+    <AnimatePresence>
     {mobileMenuOpen && (
-      <div className="fixed inset-0 top-24 z-[100] bg-white lg:hidden">
-        <nav className="flex flex-col px-6 py-8">
-          {/* Services Accordion */}
-          <button
-            onClick={() => setServicesOpen(!servicesOpen)}
-            className="flex items-center justify-between border-b border-neutral-mid py-4 text-lg font-medium text-neutral-dark"
-          >
-            Services
-            <ChevronDown
-              className={`h-5 w-5 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
-            />
-          </button>
-          {servicesOpen && (
-            <div className="flex flex-col border-b border-neutral-mid py-2">
-              {serviceLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="py-3 pl-4 text-base text-neutral-dark/80 transition-colors hover:text-primary"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          )}
-
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="border-b border-neutral-mid py-4 text-lg font-medium text-neutral-dark"
+      <>
+        {/* Backdrop */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="fixed inset-0 top-24 z-[99] bg-black/20 lg:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+        {/* Menu Panel */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+          className="fixed inset-x-0 top-24 z-[100] bg-white/95 backdrop-blur-md shadow-xl lg:hidden"
+        >
+          <nav className="flex flex-col px-6 py-6">
+            {/* Services Accordion */}
+            <button
+              onClick={() => setServicesOpen(!servicesOpen)}
+              className="flex items-center justify-between border-b border-neutral-mid py-4 text-lg font-medium text-neutral-dark"
             >
-              {link.label}
-            </Link>
-          ))}
+              Services
+              <ChevronDown
+                className={`h-5 w-5 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+            {servicesOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="flex flex-col overflow-hidden border-b border-neutral-mid py-2"
+              >
+                {serviceLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="py-3 pl-4 text-base text-neutral-dark/80 transition-colors hover:text-primary"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </motion.div>
+            )}
 
-          <Link
-            href="/contact"
-            onClick={() => setMobileMenuOpen(false)}
-            className="btn-lift mt-8 rounded-lg bg-accent py-4 text-center text-base font-semibold text-white"
-          >
-            Get Free Estimate
-          </Link>
-        </nav>
-      </div>
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="border-b border-neutral-mid py-4 text-lg font-medium text-neutral-dark"
+              >
+                {link.label}
+              </Link>
+            ))}
+
+            <Link
+              href="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="btn-lift mt-8 rounded-lg bg-accent py-4 text-center text-base font-semibold text-white"
+            >
+              Get Free Estimate
+            </Link>
+          </nav>
+        </motion.div>
+      </>
     )}
+    </AnimatePresence>
     </>
   );
 }
