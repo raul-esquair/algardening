@@ -30,21 +30,22 @@ export default async function OGImage() {
         <img
           src={logoBase64}
           alt="AL Gardening Logo"
-          width={300}
-          height={300}
+          width={420}
+          height={420}
           style={{ filter: "brightness(0) invert(1)" }}
         />
         <div
           style={{
             display: "flex",
-            fontSize: 24,
-            color: "rgba(255,255,255,0.7)",
-            marginTop: 20,
+            fontSize: 28,
+            color: "#C8973E",
+            marginTop: 24,
             fontFamily: "sans-serif",
-            letterSpacing: 4,
+            fontWeight: 600,
+            letterSpacing: 1,
           }}
         >
-          EAST BAY LANDSCAPING
+          Get Your Free Estimate Today
         </div>
       </div>
     ),
