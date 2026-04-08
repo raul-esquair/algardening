@@ -125,10 +125,10 @@ export default function ServiceAreas() {
               Get Free Estimate
             </Link>
             <a
-              href="tel:+19255550123"
+              href="tel:+19255047892"
               className="text-sm font-semibold text-primary"
             >
-              (925) 555-0123
+              (925) 504-7892
             </a>
           </div>
         </div>

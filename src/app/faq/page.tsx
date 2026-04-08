@@ -18,7 +18,7 @@ const faqSections = [
       },
       {
         q: "How do I get a free estimate?",
-        a: "Simply fill out our contact form, call us at (925) 555-0123, or request an estimate through any page on our site. We'll schedule a visit to your property and provide a detailed quote — no obligation.",
+        a: "Simply fill out our contact form, call us at (925) 504-7892, or request an estimate through any page on our site. We'll schedule a visit to your property and provide a detailed quote — no obligation.",
       },
       {
         q: "What's your satisfaction guarantee?",
@@ -154,10 +154,10 @@ export default function FAQ() {
               Get Free Estimate
             </Link>
             <a
-              href="tel:+19255550123"
+              href="tel:+19255047892"
               className="text-sm font-semibold text-primary"
             >
-              (925) 555-0123
+              (925) 504-7892
             </a>
           </div>
         </div>

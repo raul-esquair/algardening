@@ -76,10 +76,10 @@ export default function ServicePageTemplate({
             <span className="text-sm text-white/50">
               or call{" "}
               <a
-                href="tel:+19255550123"
+                href="tel:+19255047892"
                 className="text-white/70 hover:text-white"
               >
-                (925) 555-0123
+                (925) 504-7892
               </a>
             </span>
           </div>
@@ -289,10 +289,10 @@ export default function ServicePageTemplate({
             <span className="text-[15px] text-white/60">
               or call{" "}
               <a
-                href="tel:+19255550123"
+                href="tel:+19255047892"
                 className="text-white/80 hover:text-white"
               >
-                (925) 555-0123
+                (925) 504-7892
               </a>
             </span>
           </div>

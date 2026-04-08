@@ -72,11 +72,11 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <h3 className="text-sm font-bold tracking-wider">Contact</h3>
             <a
-              href="tel:+19255550123"
+              href="tel:+19255047892"
               className="flex items-center gap-2 text-sm text-white/75 transition-colors hover:text-white"
             >
               <Phone className="h-3.5 w-3.5 text-accent" />
-              (925) 555-0123
+              (925) 504-7892
             </a>
             <a
               href="mailto:hello@algardening.com"

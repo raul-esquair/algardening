@@ -87,7 +87,7 @@ export default function HeroSection() {
               </label>
               <input
                 type="tel"
-                placeholder="(925) 555-0123"
+                placeholder="(925) 504-7892"
                 required
                 value={formData.phone}
                 onChange={(e) =>

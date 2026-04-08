@@ -20,7 +20,7 @@ const serviceOptions = [
 ];
 
 const contactInfo = [
-  { icon: Phone, label: "(925) 555-0123", href: "tel:+19255550123" },
+  { icon: Phone, label: "(925) 504-7892", href: "tel:+19255047892" },
   {
     icon: Mail,
     label: "hello@algardening.com",
@@ -149,7 +149,7 @@ export default function Contact() {
                       </label>
                       <input
                         type="tel"
-                        placeholder="(925) 555-0123"
+                        placeholder="(925) 504-7892"
                         required
                         value={formData.phone}
                         onChange={(e) =>

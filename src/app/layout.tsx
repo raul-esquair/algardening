@@ -86,7 +86,7 @@ export default function RootLayout({
               description:
                 "Professional landscaping and lawn care services serving Contra Costa and Alameda County in the East Bay, California.",
               url: siteUrl,
-              telephone: "+19255550123",
+              telephone: "+19255047892",
               email: "hello@algardening.com",
               areaServed: [
                 {
