@@ -37,7 +37,7 @@ export default async function OGImage() {
         <div
           style={{
             display: "flex",
-            fontSize: 40,
+            fontSize: 52,
             color: "#C8973E",
             marginTop: 12,
             fontFamily: "sans-serif",
