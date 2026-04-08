@@ -30,18 +30,18 @@ export default async function OGImage() {
         <img
           src={logoBase64}
           alt="AL Gardening Logo"
-          width={420}
-          height={420}
+          width={520}
+          height={520}
           style={{ filter: "brightness(0) invert(1)" }}
         />
         <div
           style={{
             display: "flex",
-            fontSize: 28,
+            fontSize: 40,
             color: "#C8973E",
-            marginTop: 24,
+            marginTop: 12,
             fontFamily: "sans-serif",
-            fontWeight: 600,
+            fontWeight: 700,
             letterSpacing: 1,
           }}
         >
