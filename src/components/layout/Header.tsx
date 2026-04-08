@@ -145,7 +145,7 @@ export default function Header() {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-16 z-40 bg-white lg:hidden">
+        <div className="fixed inset-0 top-24 z-[60] bg-white lg:hidden">
           <nav className="flex flex-col px-6 py-8">
             {/* Services Accordion */}
             <button
