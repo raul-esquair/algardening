@@ -44,7 +44,7 @@ export default function Header() {
         className="absolute bottom-0 left-0 h-[2px] bg-accent transition-all duration-100"
         style={{ width: `${scrollProgress * 100}%` }}
       />
-      <div className="mx-auto flex h-24 max-w-[1440px] items-center justify-between px-6 lg:px-20">
+      <div className={`mx-auto flex max-w-[1440px] items-center justify-between px-6 transition-all duration-300 lg:px-20 ${scrolled ? "h-16" : "h-24"}`}>
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <Image
@@ -53,10 +53,10 @@ export default function Header() {
             width={56}
             height={56}
             style={{ width: "auto", height: "auto" }}
-            className="h-12 lg:h-14"
+            className={`transition-all duration-300 ${scrolled ? "h-9 lg:h-10" : "h-12 lg:h-14"}`}
             priority
           />
-          <span className="font-heading text-xl font-bold lg:text-2xl">
+          <span className={`font-heading font-bold transition-all duration-300 ${scrolled ? "text-lg lg:text-xl" : "text-xl lg:text-2xl"}`}>
             <span className="text-neutral-dark">AL</span>{" "}
             <span className="text-primary">Gardening</span>
           </span>
@@ -152,7 +152,7 @@ export default function Header() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 top-24 z-[99] bg-black/20 lg:hidden"
+          className={`fixed inset-0 z-[99] bg-black/20 lg:hidden ${scrolled ? "top-16" : "top-24"}`}
           onClick={() => setMobileMenuOpen(false)}
         />
         {/* Menu Panel */}
@@ -161,7 +161,7 @@ export default function Header() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-          className="fixed inset-x-0 top-24 z-[100] bg-white/95 backdrop-blur-md shadow-xl lg:hidden"
+          className={`fixed inset-x-0 z-[100] bg-white/95 backdrop-blur-md shadow-xl lg:hidden ${scrolled ? "top-16" : "top-24"}`}
         >
           <nav className="flex flex-col px-6 py-6">
             {/* Services Accordion */}
