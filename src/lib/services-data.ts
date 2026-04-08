@@ -146,6 +146,56 @@ export const services: ServiceData[] = [
       location: "Pleasant Hill",
     },
   },
+  {
+    slug: "yard-cleanup",
+    badge: "Yard Cleanup",
+    headline: "A Fresh Start for Your Outdoor Space",
+    subheadline:
+      "Seasonal cleanups, storm damage, and overgrown yard restoration — we haul it all away.",
+    ctaQuestion: "Ready for a Yard Reset?",
+    description:
+      "Whether it's a seasonal refresh, storm aftermath, or a neglected yard that needs rescuing — our cleanup crew handles it all. We clear, cut, haul, and leave your property looking brand new. Think of cleanup as the reset button. Once we're done, your yard is ready for regular maintenance or a fresh design.",
+    checklist: [
+      "Leaf & debris removal",
+      "Overgrown shrub & plant trimming",
+      "Bed edging & re-definition",
+      "Weed removal from beds",
+      "Dead plant & perennial cutback",
+      "Hard surface blowing & sweeping",
+      "Mulch refresh",
+      "Full haul-away of all waste",
+    ],
+    color: "bg-[#5A7C4A]",
+    image: "/images/services/yard-cleanup.jpg",
+    faqs: [
+      {
+        question: "What's included in a yard cleanup?",
+        answer:
+          "A full cleanup includes leaf and debris removal, overgrown shrub trimming, bed edging, weed removal, dead plant cutback, hard surface blowing, mulch refresh, and hauling away all waste. We leave your property looking brand new.",
+      },
+      {
+        question: "Do you haul away the debris?",
+        answer:
+          "Yes — every cleanup includes full haul-away. We bring our own equipment and remove everything from the property. You don't need to worry about disposal.",
+      },
+      {
+        question: "Can you handle an overgrown or neglected property?",
+        answer:
+          "Absolutely. Overgrown yard restoration is one of our specialties. No matter how out of control things have gotten, we can bring it back to baseline and get it ready for ongoing maintenance.",
+      },
+      {
+        question: "When should I schedule a seasonal cleanup?",
+        answer:
+          "Spring cleanups are best in late March through mid-April to prep for the growing season. Fall cleanups are ideal from late October through early December to clear leaves and prepare for winter. We also handle storm damage and pre-sale cleanups year-round.",
+      },
+    ],
+    testimonial: {
+      quote:
+        "Our yard was completely overgrown after being vacant for months. AL Gardening transformed it in a single day — you wouldn't believe it's the same property.",
+      name: "Carlos P.",
+      location: "San Ramon",
+    },
+  },
 ];
 
 export function getServiceBySlug(slug: string): ServiceData | undefined {
@@ -155,3 +205,8 @@ export function getServiceBySlug(slug: string): ServiceData | undefined {
 export function getRelatedServices(slug: string): ServiceData[] {
   return services.filter((s) => s.slug !== slug);
 }
+
+export const serviceNavLinks = services.map((s) => ({
+  label: s.badge,
+  href: `/services/${s.slug}`,
+}));

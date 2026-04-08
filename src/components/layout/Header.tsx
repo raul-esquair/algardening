@@ -5,18 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, ChevronDown, Menu, X } from "lucide-react";
+import { serviceNavLinks } from "@/lib/services-data";
 
 const navLinks = [
   { label: "About", href: "/about" },
   { label: "Gallery", href: "/gallery" },
   { label: "Blog", href: "/blog" },
   { label: "Service Areas", href: "/service-areas" },
-];
-
-const serviceLinks = [
-  { label: "Lawn Maintenance", href: "/services/lawn-maintenance" },
-  { label: "Landscape Design", href: "/services/landscape-design" },
-  { label: "Tree & Shrub Care", href: "/services/tree-shrub-care" },
 ];
 
 export default function Header() {
@@ -82,7 +77,7 @@ export default function Header() {
             {servicesOpen && (
               <div className="absolute left-0 top-full pt-2">
                 <div className="w-56 rounded-xl bg-white p-2 shadow-lg ring-1 ring-black/5">
-                  {serviceLinks.map((link) => (
+                  {serviceNavLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
@@ -186,7 +181,7 @@ export default function Header() {
                 exit={{ opacity: 0, height: 0 }}
                 className="flex flex-col overflow-hidden border-b border-neutral-mid py-2"
               >
-                {serviceLinks.map((link) => (
+                {serviceNavLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}

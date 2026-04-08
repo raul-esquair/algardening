@@ -102,6 +102,7 @@ export default function RootLayout({
                 "Lawn Maintenance",
                 "Landscape Design",
                 "Tree & Shrub Care",
+                "Yard Cleanup",
               ],
               priceRange: "$$",
               openingHours: "Mo-Sa 07:00-18:00",
@@ -128,6 +129,13 @@ export default function RootLayout({
                     itemOffered: {
                       "@type": "Service",
                       name: "Tree & Shrub Care",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Yard Cleanup",
                     },
                   },
                 ],

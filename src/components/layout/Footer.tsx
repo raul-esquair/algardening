@@ -1,12 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin } from "lucide-react";
-
-const serviceLinks = [
-  { label: "Lawn Maintenance", href: "/services/lawn-maintenance" },
-  { label: "Landscape Design", href: "/services/landscape-design" },
-  { label: "Tree & Shrub Care", href: "/services/tree-shrub-care" },
-];
+import { serviceNavLinks } from "@/lib/services-data";
 
 const quickLinks = [
   { label: "About Us", href: "/about" },
@@ -43,7 +38,7 @@ export default function Footer() {
           {/* Services */}
           <div className="flex flex-col gap-4">
             <h3 className="text-sm font-bold tracking-wider">Services</h3>
-            {serviceLinks.map((link) => (
+            {serviceNavLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}

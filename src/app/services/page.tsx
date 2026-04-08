@@ -26,7 +26,7 @@ export default function Services() {
 
       {/* Service Cards */}
       <section className="py-20">
-        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 lg:grid-cols-3 lg:px-20">
+        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 md:grid-cols-2 lg:px-20">
           {services.map((service) => (
             <div
               key={service.slug}

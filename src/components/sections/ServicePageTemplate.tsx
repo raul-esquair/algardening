@@ -310,7 +310,7 @@ export default function ServicePageTemplate({
               Explore Our Other Services
             </h2>
           </div>
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-3">
             {related.map((rel) => (
               <Link
                 key={rel.slug}
