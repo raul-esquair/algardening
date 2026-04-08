@@ -23,26 +23,30 @@ export default async function OGImage() {
           justifyContent: "center",
           backgroundColor: "#2D5A3D",
           backgroundImage:
-            "radial-gradient(ellipse at 50% 30%, rgba(200,151,62,0.15), transparent 70%)",
+            "radial-gradient(ellipse at 50% 40%, rgba(200,151,62,0.12), transparent 70%)",
+          padding: "60px 80px",
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={logoBase64}
           alt="AL Gardening Logo"
-          width={520}
-          height={520}
-          style={{ filter: "brightness(0) invert(1)" }}
+          width={380}
+          height={380}
+          style={{
+            filter: "brightness(0) invert(1)",
+            objectFit: "contain",
+          }}
         />
         <div
           style={{
             display: "flex",
-            fontSize: 52,
+            fontSize: 48,
             color: "#C8973E",
-            marginTop: 12,
+            marginTop: 32,
             fontFamily: "sans-serif",
             fontWeight: 700,
-            letterSpacing: 1,
+            letterSpacing: 2,
           }}
         >
           Get Your Free Estimate Today
