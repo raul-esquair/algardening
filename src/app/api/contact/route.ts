@@ -35,12 +35,11 @@ export async function POST(request: Request) {
       `,
     });
 
-    // SMS notification via AT&T email-to-text gateway
-    await resend.emails.send({
-      from: "AL Gardening <onboarding@resend.dev>",
-      to: "5105012601@txt.att.net",
-      subject: "New Lead",
-      text: `New estimate request from ${name} - ${phone}${service ? ` - ${service}` : ""}`,
+    // Push notification via Ntfy
+    await fetch("https://ntfy.sh/algardening-leads", {
+      method: "POST",
+      headers: { Title: "New Estimate Request" },
+      body: `${name} - ${phone}${service ? `\n${service}` : ""}`,
     });
 
     return NextResponse.json({ success: true });
