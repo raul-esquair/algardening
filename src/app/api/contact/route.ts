@@ -28,7 +28,7 @@ export async function POST(request: Request) {
           <tr style="background:#f9f9f7"><td style="padding:8px 12px;font-weight:bold;color:#2D5A3D">Email</td><td style="padding:8px 12px">${email}</td></tr>
           <tr><td style="padding:8px 12px;font-weight:bold;color:#2D5A3D">Phone</td><td style="padding:8px 12px">${phone}</td></tr>
           <tr style="background:#f9f9f7"><td style="padding:8px 12px;font-weight:bold;color:#2D5A3D">Service</td><td style="padding:8px 12px">${service || "Not specified"}</td></tr>
-          <tr><td style="padding:8px 12px;font-weight:bold;color:#2D5A3D">Property</td><td style="padding:8px 12px">${propertyType}</td></tr>
+          ${propertyType ? `<tr><td style="padding:8px 12px;font-weight:bold;color:#2D5A3D">Property</td><td style="padding:8px 12px">${propertyType}</td></tr>` : ""}
           ${message ? `<tr style="background:#f9f9f7"><td style="padding:8px 12px;font-weight:bold;color:#2D5A3D">Message</td><td style="padding:8px 12px">${message}</td></tr>` : ""}
         </table>
       `,
