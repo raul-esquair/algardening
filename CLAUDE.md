@@ -7,7 +7,7 @@ A high-converting website for AL Gardening, a local landscaping business serving
 - **Framework:** Next.js 14+ (App Router)
 - **Styling:** Tailwind CSS 4
 - **Blog:** MDX files in `/content/blog/`
-- **Forms:** Email delivery via Resend
+- **Forms:** Email delivery via Resend + push notifications via Ntfy
 - **Deployment:** Vercel
 - **Design:** Pencil (.pen) mockups created before coding each page group
 
@@ -92,7 +92,7 @@ The project follows a phased build tracked in `.phase-tracker.md`. Run `/phase` 
 - **Service data is centralized** in `src/lib/services-data.ts`. Header, Footer, ServicesSection, and ServicePageTemplate all import from it. Adding a new service = add entry to data file + create one route page. Everything else auto-updates.
 - **Animations** use Framer Motion. Reusable primitives in `src/components/ui/animations.tsx` (FadeIn, StaggerChildren, StaggerItem, SlideIn, ScaleOnHover). CSS classes `btn-lift` and `card-lift` in globals.css for hover effects.
 - **Header** uses `fixed` positioning (not `sticky` — sticky breaks in flex containers). Main content has `pt-24` to compensate. Header compresses from h-24 to h-16 on scroll.
-- **Contact form** UI works but Resend email delivery is NOT yet wired up — submissions log to console.
+- **Contact form** and **hero form** both send emails via Resend to alex@algardening.com + push notifications via Ntfy (channel: `algardening-leads`). API route: `src/app/api/contact/route.ts`. Requires `RESEND_API_KEY` env var (set in Netlify + `.env.local`).
 - **Phone:** (925) 504-7892 | **Email:** hello@algardening.com
 - **GitHub:** raul-esquair/algardening | **Hosting:** Netlify
 
@@ -101,5 +101,6 @@ The project follows a phased build tracked in `.phase-tracker.md`. Run `/phase` 
 - `.phase-tracker.md` — current build progress (read before any work)
 - `.claude/commands/phase.md` — the /phase skill definition
 - `src/lib/services-data.ts` — single source of truth for all service data
+- `src/app/api/contact/route.ts` — form submission handler (Resend email + Ntfy push)
 - `src/lib/blog.ts` — blog utility (reads MDX files, parses frontmatter)
 - `src/components/ui/animations.tsx` — reusable Framer Motion animation components
