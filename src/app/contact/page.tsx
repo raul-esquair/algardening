@@ -46,12 +46,32 @@ export default function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Wire up Resend in Phase 4 completion
-    console.log("Contact form submitted:", formData);
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Something went wrong.");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to send. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -238,12 +258,20 @@ export default function Contact() {
                     />
                   </div>
 
+                  {/* Error */}
+                  {error && (
+                    <p className="rounded-lg bg-error/10 px-4 py-3 text-sm font-medium text-error">
+                      {error}
+                    </p>
+                  )}
+
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="btn-lift h-[52px] w-full rounded-[10px] bg-accent text-base font-bold text-white transition-colors hover:bg-accent/90"
+                    disabled={loading}
+                    className="btn-lift h-[52px] w-full rounded-[10px] bg-accent text-base font-bold text-white transition-colors hover:bg-accent/90 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Send My Request
+                    {loading ? "Sending..." : "Send My Request"}
                   </button>
                   <p className="text-center text-xs text-neutral-dark/40">
                     We&apos;ll never share your info. Expect a response within 24
