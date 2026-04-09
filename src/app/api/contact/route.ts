@@ -16,6 +16,7 @@ export async function POST(request: Request) {
       );
     }
 
+    // Email to Alex
     await resend.emails.send({
       from: "AL Gardening <onboarding@resend.dev>",
       to: "alex@algardening.com",
@@ -32,6 +33,14 @@ export async function POST(request: Request) {
           ${message ? `<tr style="background:#f9f9f7"><td style="padding:8px 12px;font-weight:bold;color:#2D5A3D">Message</td><td style="padding:8px 12px">${message}</td></tr>` : ""}
         </table>
       `,
+    });
+
+    // SMS notification via AT&T email-to-text gateway
+    await resend.emails.send({
+      from: "AL Gardening <onboarding@resend.dev>",
+      to: "5105012601@txt.att.net",
+      subject: "New Lead",
+      text: `New estimate request from ${name} - ${phone}${service ? ` - ${service}` : ""}`,
     });
 
     return NextResponse.json({ success: true });
