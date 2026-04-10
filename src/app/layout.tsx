@@ -70,6 +70,20 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${playfair.variable} h-full antialiased`}
     >
+      <head>
+        {/* Google Ads Tag */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-703328787" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-703328787');
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <Header />
         <main className="flex-1 pt-24">{children}</main>
