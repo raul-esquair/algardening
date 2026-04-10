@@ -27,10 +27,10 @@ export default function FinalCTASection() {
             <span className="text-[15px] text-white/60">
               or call{" "}
               <a
-                href="tel:+19255047892"
+                href="tel:+19256643281"
                 className="text-white/80 hover:text-white"
               >
-                (925) 504-7892
+                (925) 664-3281
               </a>
             </span>
           </div>

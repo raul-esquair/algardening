@@ -27,7 +27,7 @@ export default function MobileFloatingCTA() {
           className="fixed bottom-0 left-0 right-0 z-50 flex gap-3 bg-white/95 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] backdrop-blur-md lg:hidden"
         >
           <a
-            href="tel:+19255047892"
+            href="tel:+19256643281"
             className="btn-lift flex flex-1 items-center justify-center gap-2 rounded-[10px] bg-primary py-3.5 text-[15px] font-semibold text-white"
           >
             <Phone className="h-4 w-4" />

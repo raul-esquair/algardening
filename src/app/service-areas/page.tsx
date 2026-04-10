@@ -1,55 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getCitiesByCounty } from "@/lib/cities-data";
 
 export const metadata: Metadata = {
   title: "Service Areas",
-  description: "AL Gardening serves Contra Costa County and Alameda County including Walnut Creek, Concord, Oakland, Berkeley, Fremont, and more.",
+  description: "AL Gardening serves 14 cities across Contra Costa and Alameda County including Walnut Creek, Danville, Lafayette, Pleasanton, Dublin, and more.",
 };
 
 const counties = [
   {
     name: "Contra Costa County",
-    cities: [
-      "Walnut Creek",
-      "Concord",
-      "Pleasant Hill",
-      "Martinez",
-      "Lafayette",
-      "Orinda",
-      "Moraga",
-      "Danville",
-      "San Ramon",
-      "Antioch",
-      "Pittsburg",
-      "Oakley",
-      "Brentwood",
-      "Clayton",
-      "El Cerrito",
-      "Richmond",
-      "Hercules",
-      "Pinole",
-    ],
+    cities: getCitiesByCounty("Contra Costa"),
   },
   {
     name: "Alameda County",
-    cities: [
-      "Oakland",
-      "Berkeley",
-      "Fremont",
-      "Hayward",
-      "Dublin",
-      "Pleasanton",
-      "Livermore",
-      "San Leandro",
-      "Alameda",
-      "Castro Valley",
-      "Union City",
-      "Newark",
-      "San Lorenzo",
-      "Albany",
-      "Emeryville",
-      "Piedmont",
-    ],
+    cities: getCitiesByCounty("Alameda"),
   },
 ];
 
@@ -94,12 +59,13 @@ export default function ServiceAreas() {
                 </h2>
                 <div className="grid grid-cols-2 gap-x-8 gap-y-2.5">
                   {county.cities.map((city) => (
-                    <span
-                      key={city}
-                      className="text-sm text-neutral-dark/60"
+                    <Link
+                      key={city.slug}
+                      href={`/service-areas/${city.slug}`}
+                      className="text-sm text-neutral-dark/60 transition-colors hover:text-primary"
                     >
-                      {city}
-                    </span>
+                      {city.name}
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -125,10 +91,10 @@ export default function ServiceAreas() {
               Get Free Estimate
             </Link>
             <a
-              href="tel:+19255047892"
+              href="tel:+19256643281"
               className="text-sm font-semibold text-primary"
             >
-              (925) 504-7892
+              (925) 664-3281
             </a>
           </div>
         </div>

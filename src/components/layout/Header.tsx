@@ -105,11 +105,11 @@ export default function Header() {
         {/* Desktop Right Side */}
         <div className="hidden items-center gap-6 lg:flex">
           <a
-            href="tel:+19255047892"
+            href="tel:+19256643281"
             className="flex items-center gap-2 text-sm font-semibold text-primary"
           >
             <Phone className="h-4 w-4" />
-            (925) 504-7892
+            (925) 664-3281
           </a>
           <Link
             href="/contact"
@@ -122,7 +122,7 @@ export default function Header() {
         {/* Mobile Right Side */}
         <div className="flex items-center gap-4 lg:hidden">
           <a
-            href="tel:+19255047892"
+            href="tel:+19256643281"
             className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10"
           >
             <Phone className="h-[18px] w-[18px] text-primary" />

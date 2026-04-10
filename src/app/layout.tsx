@@ -67,6 +67,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${inter.variable} ${playfair.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
@@ -86,7 +87,7 @@ export default function RootLayout({
               description:
                 "Professional landscaping and lawn care services serving Contra Costa and Alameda County in the East Bay, California.",
               url: siteUrl,
-              telephone: "+19255047892",
+              telephone: "+19256643281",
               email: "hello@algardening.com",
               areaServed: [
                 {
@@ -97,6 +98,25 @@ export default function RootLayout({
                   "@type": "AdministrativeArea",
                   name: "Alameda County, CA",
                 },
+                ...[
+                  "Walnut Creek",
+                  "Concord",
+                  "Pleasant Hill",
+                  "Martinez",
+                  "Lafayette",
+                  "Orinda",
+                  "Moraga",
+                  "Danville",
+                  "San Ramon",
+                  "Oakley",
+                  "Brentwood",
+                  "Clayton",
+                  "Dublin",
+                  "Pleasanton",
+                ].map((city) => ({
+                  "@type": "City",
+                  name: `${city}, CA`,
+                })),
               ],
               serviceType: [
                 "Lawn Maintenance",

@@ -7,14 +7,11 @@ import Image from "next/image";
 const categories = ["All", "Lawn Maintenance", "Landscape Design", "Tree & Shrub Care"] as const;
 
 const galleryItems = [
-  { category: "Lawn Maintenance", image: "/images/gallery/project-1.jpg" },
-  { category: "Landscape Design", image: "/images/gallery/project-2.jpg" },
+  { category: "Lawn Maintenance", image: "/images/gallery/lawn-1.jpg" },
+  { category: "Lawn Maintenance", image: "/images/gallery/lawn-2.jpg" },
+  { category: "Landscape Design", image: "/images/gallery/landscape-1.jpg" },
   { category: "Tree & Shrub Care", image: "/images/gallery/project-3.jpg" },
-  { category: "Landscape Design", image: "/images/gallery/project-4.jpg" },
-  { category: "Lawn Maintenance", image: "/images/gallery/project-5.jpg" },
   { category: "Tree & Shrub Care", image: "/images/gallery/project-6.jpg" },
-  { category: "Lawn Maintenance", image: "/images/gallery/project-7.jpg" },
-  { category: "Landscape Design", image: "/images/gallery/project-8.jpg" },
   { category: "Tree & Shrub Care", image: "/images/gallery/project-9.jpg" },
 ];
 

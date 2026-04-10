@@ -2,35 +2,16 @@
 
 import Link from "next/link";
 import { FadeIn, SlideIn } from "@/components/ui/animations";
+import { getCitiesByCounty } from "@/lib/cities-data";
 
 const counties = [
   {
     name: "Contra Costa County",
-    cities: [
-      "Walnut Creek",
-      "Concord",
-      "Pleasant Hill",
-      "Martinez",
-      "Lafayette",
-      "Orinda",
-      "Danville",
-      "San Ramon",
-      "Moraga",
-    ],
+    cities: getCitiesByCounty("Contra Costa"),
   },
   {
     name: "Alameda County",
-    cities: [
-      "Oakland",
-      "Berkeley",
-      "Fremont",
-      "Hayward",
-      "Dublin",
-      "Pleasanton",
-      "Livermore",
-      "San Leandro",
-      "Castro Valley",
-    ],
+    cities: getCitiesByCounty("Alameda"),
   },
 ];
 
@@ -75,11 +56,13 @@ export default function ServiceAreasSection() {
                   </h3>
                   <ul className="flex flex-col gap-2">
                     {county.cities.map((city) => (
-                      <li
-                        key={city}
-                        className="text-sm text-neutral-dark/60"
-                      >
-                        {city}
+                      <li key={city.slug}>
+                        <Link
+                          href={`/service-areas/${city.slug}`}
+                          className="text-sm text-neutral-dark/60 transition-colors hover:text-primary"
+                        >
+                          {city.name}
+                        </Link>
                       </li>
                     ))}
                   </ul>

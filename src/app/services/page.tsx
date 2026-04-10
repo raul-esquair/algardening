@@ -85,10 +85,10 @@ export default function Services() {
             Not sure what you need?
           </p>
           <a
-            href="tel:+19255047892"
+            href="tel:+19256643281"
             className="text-base font-semibold text-primary"
           >
-            Call us at (925) 504-7892 and we&apos;ll help you figure it out.
+            Call us at (925) 664-3281 and we&apos;ll help you figure it out.
           </a>
         </div>
       </section>

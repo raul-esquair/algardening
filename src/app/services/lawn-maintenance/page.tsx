@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Lawn Maintenance",
-  description: "Professional lawn care in Contra Costa and Alameda County. Weekly mowing, edging, trimming, fertilization, and seasonal cleanup.",
+  description: "Professional lawn care in Walnut Creek, Danville, Pleasanton, and 11 more East Bay cities. Weekly mowing, edging, trimming, and seasonal cleanup.",
 };
 
 export default function LawnMaintenance() {

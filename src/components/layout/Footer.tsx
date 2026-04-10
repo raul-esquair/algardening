@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { serviceNavLinks } from "@/lib/services-data";
+import { getCitiesByCounty } from "@/lib/cities-data";
 
 const quickLinks = [
   { label: "About Us", href: "/about" },
@@ -16,7 +17,7 @@ export default function Footer() {
     <footer className="bg-primary text-white">
       <div className="mx-auto max-w-[1440px] px-6 pt-16 lg:px-20">
         {/* Main Columns */}
-        <div className="grid gap-10 pb-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
+        <div className="grid gap-10 pb-12 sm:grid-cols-2 lg:grid-cols-5 lg:gap-10">
           {/* Company Info */}
           <div className="flex flex-col gap-5">
             <Link href="/">
@@ -63,15 +64,48 @@ export default function Footer() {
             ))}
           </div>
 
+          {/* Service Areas */}
+          <div className="flex flex-col gap-4">
+            <h3 className="text-sm font-bold tracking-wider">Service Areas</h3>
+            <div className="flex flex-col gap-1.5">
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-white/40">Contra Costa</span>
+              {getCitiesByCounty("Contra Costa").slice(0, 6).map((city) => (
+                <Link
+                  key={city.slug}
+                  href={`/service-areas/${city.slug}`}
+                  className="text-sm text-white/75 transition-colors hover:text-white"
+                >
+                  {city.name}
+                </Link>
+              ))}
+              <span className="mt-1.5 text-[11px] font-semibold uppercase tracking-wider text-white/40">Alameda</span>
+              {getCitiesByCounty("Alameda").map((city) => (
+                <Link
+                  key={city.slug}
+                  href={`/service-areas/${city.slug}`}
+                  className="text-sm text-white/75 transition-colors hover:text-white"
+                >
+                  {city.name}
+                </Link>
+              ))}
+              <Link
+                href="/service-areas"
+                className="mt-1 text-xs font-semibold text-accent transition-colors hover:text-accent/80"
+              >
+                View All →
+              </Link>
+            </div>
+          </div>
+
           {/* Contact */}
           <div className="flex flex-col gap-4">
             <h3 className="text-sm font-bold tracking-wider">Contact</h3>
             <a
-              href="tel:+19255047892"
+              href="tel:+19256643281"
               className="flex items-center gap-2 text-sm text-white/75 transition-colors hover:text-white"
             >
               <Phone className="h-3.5 w-3.5 text-accent" />
-              (925) 504-7892
+              (925) 664-3281
             </a>
             <a
               href="mailto:hello@algardening.com"

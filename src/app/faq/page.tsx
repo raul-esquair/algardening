@@ -10,7 +10,7 @@ const faqSections = [
     faqs: [
       {
         q: "What areas do you serve?",
-        a: "We serve homes and businesses across Contra Costa County and Alameda County, including Walnut Creek, Concord, Pleasant Hill, Lafayette, Oakland, Berkeley, Fremont, Dublin, and many more East Bay communities.",
+        a: "We serve 14 cities across Contra Costa and Alameda County, including Walnut Creek, Concord, Pleasant Hill, Martinez, Lafayette, Orinda, Moraga, Danville, San Ramon, Oakley, Brentwood, Clayton, Dublin, and Pleasanton. Visit our service areas page for details on each city.",
       },
       {
         q: "Are you licensed and insured?",
@@ -18,7 +18,7 @@ const faqSections = [
       },
       {
         q: "How do I get a free estimate?",
-        a: "Simply fill out our contact form, call us at (925) 504-7892, or request an estimate through any page on our site. We'll schedule a visit to your property and provide a detailed quote — no obligation.",
+        a: "Simply fill out our contact form, call us at (925) 664-3281, or request an estimate through any page on our site. We'll schedule a visit to your property and provide a detailed quote — no obligation.",
       },
       {
         q: "What's your satisfaction guarantee?",
@@ -154,10 +154,10 @@ export default function FAQ() {
               Get Free Estimate
             </Link>
             <a
-              href="tel:+19255047892"
+              href="tel:+19256643281"
               className="text-sm font-semibold text-primary"
             >
-              (925) 504-7892
+              (925) 664-3281
             </a>
           </div>
         </div>

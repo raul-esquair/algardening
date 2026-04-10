@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Landscape Design & Installation",
-  description: "Custom landscape design and installation in the East Bay. Garden design, planting, sod, mulch, and irrigation systems.",
+  description: "Custom landscape design and installation in Walnut Creek, Lafayette, Dublin, and 11 more East Bay cities. Planting, sod, mulch, and irrigation.",
 };
 
 export default function LandscapeDesign() {

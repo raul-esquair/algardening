@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 export const metadata: Metadata = {
   title: "Yard Cleanup",
   description:
-    "Professional yard cleanup in Contra Costa and Alameda County. Seasonal cleanups, storm damage, overgrown yard restoration, and full haul-away.",
+    "Professional yard cleanup in Concord, San Ramon, Brentwood, and 11 more East Bay cities. Seasonal cleanups, storm damage, and full haul-away.",
 };
 
 export default function YardCleanup() {

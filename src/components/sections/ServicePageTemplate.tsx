@@ -76,10 +76,10 @@ export default function ServicePageTemplate({
             <span className="text-sm text-white/50">
               or call{" "}
               <a
-                href="tel:+19255047892"
+                href="tel:+19256643281"
                 className="text-white/70 hover:text-white"
               >
-                (925) 504-7892
+                (925) 664-3281
               </a>
             </span>
           </div>
@@ -114,6 +114,12 @@ export default function ServicePageTemplate({
             <p className="leading-relaxed text-neutral-dark/60">
               {service.description}
             </p>
+            <p className="text-sm text-neutral-dark/50">
+              We offer {service.badge} across 14 East Bay cities.{" "}
+              <Link href="/service-areas" className="font-semibold text-primary hover:underline">
+                See all service areas →
+              </Link>
+            </p>
             <ul className="mt-2 flex flex-col gap-3.5">
               {service.checklist.map((item) => (
                 <li key={item} className="flex items-center gap-2.5">
@@ -136,6 +142,7 @@ export default function ServicePageTemplate({
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
+              priority
             />
           </div>
           </SlideIn>
@@ -289,10 +296,10 @@ export default function ServicePageTemplate({
             <span className="text-[15px] text-white/60">
               or call{" "}
               <a
-                href="tel:+19255047892"
+                href="tel:+19256643281"
                 className="text-white/80 hover:text-white"
               >
-                (925) 504-7892
+                (925) 664-3281
               </a>
             </span>
           </div>
