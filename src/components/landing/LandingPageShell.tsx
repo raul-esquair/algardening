@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, MessageSquare } from "lucide-react";
@@ -17,6 +18,15 @@ export default function LandingPageShell({
   const scrollToForm = () => {
     document.getElementById(formId)?.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      const target = e.target as Element | null;
+      if (target?.closest?.('a[href^="tel:"]')) trackPhoneConversion();
+    };
+    document.addEventListener("click", handler);
+    return () => document.removeEventListener("click", handler);
+  }, []);
 
   return (
     <div className="fixed inset-0 z-[100] overflow-y-auto bg-white">
@@ -38,7 +48,6 @@ export default function LandingPageShell({
           </Link>
           <a
             href="tel:+19256643281"
-            onClick={trackPhoneConversion}
             className="flex items-center gap-2 text-sm font-bold text-primary transition-colors hover:text-primary/80"
           >
             <Phone className="h-4 w-4" />
@@ -56,7 +65,6 @@ export default function LandingPageShell({
         <div className="flex gap-3">
           <a
             href="tel:+19256643281"
-            onClick={trackPhoneConversion}
             className="btn-lift flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary py-3 text-sm font-bold text-white"
           >
             <Phone className="h-4 w-4" />

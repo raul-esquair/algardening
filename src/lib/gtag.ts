@@ -22,6 +22,7 @@ export function trackPhoneConversion() {
     send_to: PHONE_CONVERSION,
     value: 40.0,
     currency: "USD",
+    transport_type: "beacon",
   });
 }
 
