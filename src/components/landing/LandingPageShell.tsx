@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, MessageSquare } from "lucide-react";
+import { trackPhoneConversion } from "@/lib/gtag";
 
 interface LandingPageShellProps {
   children: React.ReactNode;
@@ -37,6 +38,7 @@ export default function LandingPageShell({
           </Link>
           <a
             href="tel:+19256643281"
+            onClick={trackPhoneConversion}
             className="flex items-center gap-2 text-sm font-bold text-primary transition-colors hover:text-primary/80"
           >
             <Phone className="h-4 w-4" />
@@ -54,6 +56,7 @@ export default function LandingPageShell({
         <div className="flex gap-3">
           <a
             href="tel:+19256643281"
+            onClick={trackPhoneConversion}
             className="btn-lift flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary py-3 text-sm font-bold text-white"
           >
             <Phone className="h-4 w-4" />

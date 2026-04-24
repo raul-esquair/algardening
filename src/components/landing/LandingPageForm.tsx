@@ -1,13 +1,8 @@
 "use client";
 
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
-
 import { useState } from "react";
 import { CheckCircle } from "lucide-react";
+import { trackFormConversion } from "@/lib/gtag";
 
 interface LandingPageFormProps {
   defaultService: string;
@@ -57,12 +52,7 @@ export default function LandingPageForm({
       });
 
       if (!res.ok) throw new Error("Failed to send");
-      // Fire Google Ads conversion event
-      if (typeof window !== "undefined" && typeof window.gtag === "function") {
-        window.gtag("event", "conversion", {
-          send_to: "AW-703328787/submit_lead_form",
-        });
-      }
+      trackFormConversion();
       setSubmitted(true);
     } catch {
       setError("Something went wrong. Call us directly at (925) 664-3281.");
